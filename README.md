@@ -1,3 +1,3 @@
 # PrecizeGoLang
-# Run following command in root directory:
-# $go run .
+## Run following command in root directory:
+## $ go run .
