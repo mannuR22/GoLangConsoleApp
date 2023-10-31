@@ -146,7 +146,7 @@ func GetRank() int {
 
 	}
 
-	fmt.Println("\nRank of User with Name:", name, "Rank:", reportWithHighScoreCount+1)
+	fmt.Println("\nRank of", name, ":", reportWithHighScoreCount+1)
 
 	return 1
 }
