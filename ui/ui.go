@@ -17,21 +17,21 @@ func printStatus(resp string, err error) {
 }
 func Menu() int {
 	var choice int
-	fmt.Println("\nChoose option 1-5 from below & press enter: \n")
+	fmt.Println("\nChoose option 1-6 from below & press enter: \n")
 	fmt.Println("1. Insert Data")
 	fmt.Println("2. View All Data")
 	fmt.Println("3. Get Rank")
 	fmt.Println("4. Update Score")
 	fmt.Println("5. Delete One Record")
 	fmt.Println("6. Exit")
-	fmt.Print("\nEnter you choice: ")
 
 	for {
+		fmt.Print("\nEnter you choice: ")
 		fmt.Scanln(&choice)
 		if 1 <= choice && choice <= 6 {
 			break
 		} else {
-			fmt.Print("Wrong Input Expected from 1 to 6, Value Entered:", choice)
+			fmt.Print("Wrong Input Expected from 1 to 6, Value Entered: ", choice, "\n")
 		}
 	}
 
