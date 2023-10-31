@@ -53,7 +53,6 @@ func GetAllRecords() ([]models.Report, error) {
 
 	client, err := getMongoClient()
 	var reports []models.Report
-	// var userList models.ListModel
 	if err != nil {
 		return nil, err
 	}
@@ -61,10 +60,6 @@ func GetAllRecords() ([]models.Report, error) {
 	defer client.Disconnect(context.Background())
 
 	db := client.Database("taskdb")
-
-	// Get a handle to the "users" collection
-	// lists := db.Collection("lists")
-	// Insert a new document
 
 	cursor, err := db.Collection("Records").Find(context.TODO(), bson.D{{}})
 	if err != nil {
@@ -82,8 +77,7 @@ func GetAllRecords() ([]models.Report, error) {
 func GetRecordWithName(name string) (models.Report, error) {
 	var report models.Report
 	client, err := getMongoClient()
-	fmt.Println("hello")
-	// var re
+
 	if err != nil {
 		return models.Report{}, err
 	}
@@ -91,7 +85,6 @@ func GetRecordWithName(name string) (models.Report, error) {
 	defer client.Disconnect(context.Background())
 
 	db := client.Database("taskdb")
-	// Insert a new document
 
 	filter := bson.M{"name": name}
 
@@ -108,7 +101,7 @@ func UpdateRecord(name string, score int) (string, error) {
 	var report models.Report
 	client, err := getMongoClient()
 	fmt.Println("hello")
-	// var re
+
 	if err != nil {
 		return "dao/UpdateRecord(): Error Occured while creating mongo client.", err
 	}
@@ -116,7 +109,6 @@ func UpdateRecord(name string, score int) (string, error) {
 	defer client.Disconnect(context.Background())
 
 	db := client.Database("taskdb")
-	// Insert a new document
 
 	filter := bson.M{"name": name}
 
@@ -130,7 +122,6 @@ func UpdateRecord(name string, score int) (string, error) {
 
 	update := bson.M{"$set": report}
 
-	// Update document
 	_, err = db.Collection("Records").UpdateOne(context.Background(), filter, update)
 	if err != nil {
 
@@ -153,8 +144,6 @@ func DeleteRecord(name string) (string, error) {
 	defer client.Disconnect(context.Background())
 
 	db := client.Database("taskdb")
-
-	// Insert a new document
 
 	filter := bson.M{"name": name}
 
